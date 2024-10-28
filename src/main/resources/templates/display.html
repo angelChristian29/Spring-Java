@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Actions</th>
+		</tr>
+		<tr th:each="book:${books}">
+			<td th:text="${book.id}"></td>
+			<td th:text="${book.name}"></td>
+			<td th:text="${book.price}"></td>
+			<td>
+				<a th:href="@{/books/update/{id}(id=${book.id})}">Update</a>
+				<a th:href="@{/books/delete/{id}(id=${book.id})}"
+				onclick="return confirm('Are you sure to delete?')">Delete</a>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
